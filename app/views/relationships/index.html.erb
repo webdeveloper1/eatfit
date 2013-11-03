@@ -23,7 +23,7 @@
       <% @relationships.each do |relationship| %>
         <div class="col-md-6 col-xs-12">
           <div class="panel panel-default">
-            <div class="panel-heading"><%= relationship.leader.username.capitalize %></div>
+            <div class="panel-heading"><%= link_to relationship.leader.username.capitalize, user_path(relationship.leader.username) %></div>
               <div class="panel-body">
                 <%= image_tag "avatar.jpg", size: "60", class: "img-rounded" %>
                 <%= pluralize(relationship.leader.leading_relationships.count, "Follower") %>
