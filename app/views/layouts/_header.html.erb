@@ -15,8 +15,8 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><%= link_to "Upload", dashboard_path, class: "navigation-item" %></li>
-          <li><%= link_to "My Timeline", current_user.username, class: "navigation-item" %></li>
+          <li><%= link_to "Upload", upload_path, class: "navigation-item" %></li>
+          <li><%= link_to "My Timeline", user_path(current_user.username), class: "navigation-item" %></li>
           <li><%= link_to "Feed", '#', class: "navigation-item" %></li>
           <li><%= link_to "Friends", friends_path, class: "navigation-item" %></li>
           <li><%= link_to "Search", search_path, class: "navigation-item" %></li>

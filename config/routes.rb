@@ -15,7 +15,7 @@ Eatfit2::Application.routes.draw do
 
 	resources :relationships, only: [:create, :destroy]
 	
-	get 'dashboard', to: 'dashboards#show'
+	get 'upload', to: 'dashboards#show'
 	get 'friends', to: 'relationships#index'
 
 	get 'search', to: 'search#search'
