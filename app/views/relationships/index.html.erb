@@ -1,0 +1,38 @@
+<% content_for :hero do %>
+<div class="hero inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="intro">
+          <h2>My Friends<span class="tblue">.</span></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+<div class="contact">
+  <div class="container">
+    <div class="row" style="margin-top:20px;">
+      <div class="col-md-12">
+        <h4>Your friends will be listed here:</h4>
+      </div>
+
+      <% @relationships.each do |relationship| %>
+        <div class="col-md-6 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= relationship.leader.username.capitalize %></div>
+              <div class="panel-body">
+                <%= image_tag "avatar.jpg", size: "60", class: "img-rounded" %>
+                <%= pluralize(relationship.leader.leading_relationships.count, "Follower") %>
+                <%= link_to "Unfollow", relationship, method: :delete, class: "btn btn-danger follow-btn" %>
+              </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

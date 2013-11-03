@@ -13,11 +13,19 @@ Eatfit2::Application.routes.draw do
 		resources :comments, only: [:new, :create]
 	end
 
+	resources :relationships, only: [:create, :destroy]
+	
 	get 'dashboard', to: 'dashboards#show'
+	get 'friends', to: 'relationships#index'
 
-	resources :timelines, only: [:show]
+	get 'search', to: 'search#search'
+	post 'search', to: 'search#result'
+	
 	get ':username', to: 'timelines#show', as: :user
 	devise_for :users
+
+
+
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
 

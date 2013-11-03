@@ -45,7 +45,7 @@
           <div class="posts">
             <div class="post-meta">
               <i class="icon-calendar"></i> <%= distance_of_time_in_words_to_now(meal.created_at) %> ago
-              <i class="icon-comment"></i><%# link_to pluralize(meal.comments.count, "Comment"), meal %>
+              <i class="icon-comment"></i><%= link_to pluralize(meal.comments.count, "Comment"), meal %>
             </div>
             <%= link_to image_tag(meal.picture, class: "img-responsive img-thumbnail", size: "300"), meal %>
           </div>

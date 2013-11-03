@@ -1,0 +1,58 @@
+<% content_for :hero do %>
+<div class="hero inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="intro">
+          <h2>Find People<span class="tblue">.</span></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+<div class="contact">
+  <div class="container">
+    <div class="row" style="margin-top:20px;">
+      <div class="col-md-12">
+        <div class="well">
+          <%= form_tag search_path, html: { class: "form-horizontal", role: "form" } do %>
+            <fieldset>
+              <div class="form-group">
+                <div class="col-md-10 col-xs-12">
+                  <%= text_field_tag :search_term, nil, class: "form-control", placeholder: "Search for Users here..." %>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                  <%= submit_tag "Search", class: "btn btn-primary" %>
+                </div>
+              </div>
+            </fieldset>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4>People you might know:</h4>
+      </div>
+
+      <% @results.each do |user| %>
+        <div class="col-md-6 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= link_to user.username.capitalize, user.username %></div>
+              <div class="panel-body">
+                <%= image_tag "avatar.jpg", size: "60", class: "img-rounded" %>
+                <% if current_user.can_follow?(user) %>
+                  <%= link_to "Follow", relationships_path(leader_id: user.id), method: :post, class: "btn btn-info follow-btn" %>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
