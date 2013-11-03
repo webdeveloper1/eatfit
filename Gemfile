@@ -28,7 +28,7 @@ group :test do
 	gem "shoulda-matchers"
 end
 
-group :development do
+group :production do
 	gem 'pg'
 end
 
