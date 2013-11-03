@@ -9,10 +9,10 @@ class MealsController < ApplicationController
 	def create
 		@meal = current_user.meals.build(meal_params)
 		if @meal.save
-			redirect_to dashboard_path
+			redirect_to upload_path
 		else
 			# display error message
-			redirect_to dashboard_path
+			redirect_to upload_path
 		end
 	end
 
