@@ -25,7 +25,7 @@
           <div class="posts">
             <div class="post-meta">
               <i class="icon-calendar"></i> <%= meal.created_at.strftime("%d.%m. - %H:%M") %>
-              <i class="icon-comment"></i><%= link_to pluralize(meal.comments.count, "Comment") %>
+              <i class="icon-comment"></i><%= link_to pluralize(meal.comments.count, "Comment"), meal %>
             </div>
             <div class="post-content">
               <%= link_to image_tag(meal.picture, class: "img-responsive img-thumbnail", size: "300"), meal %>
