@@ -1,0 +1,79 @@
+<% content_for :hero do %>
+<div class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="intro">
+          <h2>EAT<span class="tblue">.</span> FIT<span class="tblue">.</span> APP<span class="tblue">.</span></h2>
+          <p>upload your meals </p>
+          <p>get inspired by friends </p>
+          <p>stay focused </p><br />
+          <%= link_to "Sign Up", new_user_registration_path, class: "download" %>
+          <%= link_to "or Login", new_user_session_path, class: "strong" %>
+          <div class="applinks">
+            <a href="#"><i class="icon-android"></i></a>
+            <a href="#"><i class="icon-apple"></i></a>
+            <a href="#"><i class="icon-windows"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="shot">
+          <%= image_tag "phone-food.png", class: "img-responsive" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+<!-- Feature Starts -->
+<div class="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="feature-title text-center">
+          <h3>You are what you eat!</h3>
+          <p>Post what you eat and follow your friends. There are lots of new recipies and meals out there that suit your nutrition plan. You will never find an excuse to cheat on a meal again!</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+
+    <div class="row">
+      <div class="col-md-3  col-xs-6">
+        <div class="feat">
+          <p><i class="fa fa-dot-circle-o"></i></p>
+          <h4>Focus</h4>
+          <p>Every meal you upload, gets you one step closer to your target.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-6">
+        <div class="feat">
+          <p><i class="fa fa-group"></i></p>
+          <h4>Friends</h4>
+          <p>Follow your friends and get realtime inspiration of healthy new meals.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-6">
+        <div class="feat">
+          <p><i class="fa fa-calendar"></i></p>
+          <h4>Tracking</h4>
+          <p>Keep track of all your meals and visualize your nutrition better than ever.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-6">
+        <div class="feat">
+          <p><i class="fa fa-cutlery"></i></p>
+          <h4>Recipies</h4>
+          <p>Variation is the key to success. Eat big to get big, or eat clean to get lean.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Feature Ends -->

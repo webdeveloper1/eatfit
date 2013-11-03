@@ -1,0 +1,31 @@
+/* Navbar */
+
+.navbar-collapse {
+  max-height: 480px;
+}
+.navbar-inverse .navbar-nav .navigation-item {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 17px;
+  text-decoration: none;
+  margin-right: 15px;
+  background: rgba(0,0,0,0.3);
+  padding: 10px 15px;
+  border-radius: 5px;
+  -webkit-transition: background 1s ease;
+  -moz-transition: background 1s ease;
+  -o-transition: background 1s ease;
+  -ms-transition: background 1s ease;
+  transition: background 1s ease;
+}
+
+.navbar-inverse .navbar-nav a.navigation-item:hover {
+  color:#fff;
+  background:#333;
+  -webkit-transition: background 1s ease;
+   -moz-transition: background 1s ease;
+   -o-transition: background 1s ease;
+   -ms-transition: background 1s ease;
+   transition: background 1s ease;
+}
