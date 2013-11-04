@@ -29,6 +29,9 @@
           <div class="post-content">
             <%= image_tag @meal.picture, class: "img-responsive", size: "600" %>
           </div>
+          <% if @meal.user_id == current_user.id %>
+            <%= link_to "Delete Meal", meal_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
+          <% end %>
           <hr>
 
            <!-- Comments Starts -->

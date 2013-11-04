@@ -9,7 +9,7 @@ Eatfit2::Application.routes.draw do
 		get "/signup" => "devise/registrations#new"
 	end
 
-	resources :meals, only: [:show, :new, :create] do
+	resources :meals, only: [:show, :new, :create, :destroy] do
 		resources :comments, only: [:new, :create]
 	end
 
