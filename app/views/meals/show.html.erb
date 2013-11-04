@@ -45,7 +45,11 @@
                     <% @comments.each do |comment| %>
                       <li class="comment">
                         <a class="pull-left" href="#">
-                          <%= image_tag "avatar.jpg", class: "avatar", size: "64" %>
+                          <% if comment.user.avatar.present? %>
+                            <%= image_tag comment.user.avatar, class: "avatar", size: "64" %>
+                          <% else %>
+                            <%= image_tag "avatar.jpg", class: "avatar", size: "64" %>
+                          <% end %>
                         </a>
                           <div class="comment-author"><%= link_to comment.user.username, user_path(comment.user.username) %>
                           <div class="cmeta">Commented on <%= comment.created_at.strftime("%d.%m.-%H:%M") %></div>

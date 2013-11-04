@@ -7,6 +7,7 @@ Eatfit2::Application.routes.draw do
 		get "/login" => "devise/sessions#new"
 		delete "/logout" => "devise/sessions#destroy"
 		get "/signup" => "devise/registrations#new"
+		get "/account" => "devise/registrations#edit"
 	end
 
 	resources :meals, only: [:show, :new, :create, :destroy] do
