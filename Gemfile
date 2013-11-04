@@ -6,6 +6,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'figaro'
 gem 'pry'
+gem 'browser-timezone-rails'
 
 gem 'carrierwave'
 gem 'mini_magick'
