@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="intro">
-          <h2>Find People<span class="tblue">.</span></h2>
+          <h2>Results<span class="tblue">.</span></h2>
         </div>
       </div>
     </div>
@@ -35,9 +35,6 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
-        <h4>People you might know:</h4>
-      </div>
 
       <% @results.each do |user| %>
         <div class="col-md-6 col-xs-12">
@@ -51,6 +48,8 @@
                 <% end %>
                 <% if current_user.can_follow?(user) %>
                   <%= link_to "Follow", relationships_path(leader_id: user.id), method: :post, class: "btn btn-info follow-btn" %>
+                <% else %>
+                  <%= link_to "Friend", user.username, class: "btn btn-warning follow-btn" %>
                 <% end %>
               </div>
           </div>
