@@ -48,7 +48,7 @@
                           <% if comment.user.avatar.present? %>
                             <%= image_tag comment.user.avatar, class: "avatar", size: "64" %>
                           <% else %>
-                            <%= image_tag "avatar.jpg", class: "avatar", size: "64" %>
+                            <%= image_tag "avatar2.png", class: "avatar", size: "64" %>
                           <% end %>
                         </a>
                           <div class="comment-author"><%= link_to comment.user.username, user_path(comment.user.username) %>

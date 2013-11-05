@@ -47,7 +47,7 @@
                 <% if user.avatar.present? %>
                   <%= link_to image_tag(user.avatar, size: "60", class: "img-rounded"), user.username %>
                 <% else %>
-                  <%= link_to image_tag("avatar.jpg", size: "60", class: "img-rounded"), user.username %>
+                  <%= link_to image_tag("avatar2.png", size: "60", class: "img-rounded"), user.username %>
                 <% end %>
                 <% if current_user.can_follow?(user) %>
                   <%= link_to "Follow", relationships_path(leader_id: user.id), method: :post, class: "btn btn-info follow-btn" %>
