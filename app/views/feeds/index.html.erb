@@ -1,0 +1,33 @@
+<% content_for :hero do %>
+<div class="hero inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="intro">
+          <h2>Feed<span class="tblue">.</span></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="blog">
+  <div class="container">
+    <div class="row center">
+
+      <% @feed_items.each do |item| %>
+        <div class="col-md-4 col-sm-12">
+          <div class="posts">
+            <div class="post-meta">
+              <i class="icon-calendar"></i> <%= distance_of_time_in_words_to_now(item.created_at) %> ago
+              <i class="icon-user"></i> <%= link_to item.user.username, user_path(item.user.username) %>
+              <i class="icon-comment"></i><%= link_to pluralize(item.comments.count, "Comment"), item %>
+            </div>
+            <%= link_to image_tag(item.picture, class: "img-responsive img-thumbnail", size: "300"), item %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

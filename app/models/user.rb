@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   	where.not(id: user.id)
   end
 
+  def meal_feed
+    Meal.from_users_followed_by(self)
+  end
+
   def self.search_by_username(search_term)
   	return [] if search_term.blank?
   	where("username LIKE ?", "%#{search_term}%").order("created_at DESC")
