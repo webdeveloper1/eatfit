@@ -19,6 +19,7 @@
         <%= will_paginate @meals %>
       </div>
     </div>
+    
     <div class="row center">
       <% @meals.each do |meal| %>
         <div class="col-md-4 col-sm-12">
@@ -34,5 +35,12 @@
         </div>
       <% end %>
     </div>
+
+    <div class="row center">
+      <div class="col-md4 col-sm-12">
+        <%= will_paginate @meals %>
+      </div>
+    </div>
+
   </div>
 </div>
