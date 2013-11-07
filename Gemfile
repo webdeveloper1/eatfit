@@ -17,6 +17,7 @@ gem 'capistrano'
 gem 'rvm-capistrano'
 
 gem 'font-awesome-rails'
+gem 'simple_form'
 
 group :development, :test do
 	gem 'sqlite3'
