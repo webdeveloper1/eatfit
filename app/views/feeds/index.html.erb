@@ -12,22 +12,31 @@
 </div>
 <% end %>
 
-<div class="blog">
+<div class="contact">
   <div class="container">
-    <div class="row center">
-
-      <% @feed_items.each do |item| %>
-        <div class="col-md-4 col-sm-12">
-          <div class="posts">
-            <div class="post-meta">
-              <i class="icon-calendar"></i> <%= distance_of_time_in_words_to_now(item.created_at) %> ago
-              <i class="icon-user"></i> <%= link_to item.user.username.capitalize, user_path(item.user.username) %>
-              <i class="icon-comment"></i><%= link_to item.comments.count, item %>
+    <div class="row" style="margin-top: 20px;">
+      <% @activities.each do |activity| %>
+        <div class="col-md-6 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= distance_of_time_in_words_to_now(activity.created_at) %> ago</div>
+            <div class="panel-body">
+                <% if activity.owner.avatar.present? %>
+                  <%= link_to image_tag(activity.owner.avatar, size: "60", class: "img-rounded"), activity.owner.username %>
+                <% else %>
+                  <%= link_to image_tag("avatar2.png", size: "60", class: "img-rounded"), activity.owner.username %>
+                <% end %>
+              <%= link_to activity.owner.username, activity.owner.username %>
+              <%= render_activity activity %>
             </div>
-            <%= link_to image_tag(item.picture, class: "img-responsive img-thumbnail", size: "300"), item %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
+      <%# link_to image_tag(activity.trackable.meal.picture, size: "60"), activity.trackable.meal %>
+      <%# @activities.each do |activity| %>
+        <%# link_to activity.owner.username, activity.owner if activity.owner %>
+        <%# link_to image_tag(activity.trackable.meal.picture, size: "60") %>
+      <%# end %>

@@ -9,6 +9,7 @@ class MealsController < ApplicationController
 	def create
 		@meal = current_user.meals.build(meal_params)
 		if @meal.save
+			@meal.create_activity :create, owner: current_user
 			redirect_to upload_path
 		else
 			# display error message

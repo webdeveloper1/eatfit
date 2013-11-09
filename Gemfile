@@ -7,6 +7,7 @@ gem 'devise'
 gem 'figaro'
 gem 'pry'
 gem 'browser-timezone-rails'
+gem 'public_activity'
 
 gem 'carrierwave'
 gem 'mini_magick'

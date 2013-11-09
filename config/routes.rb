@@ -15,10 +15,10 @@ Eatfit2::Application.routes.draw do
 	end
 
 	resources :relationships, only: [:create, :destroy]
-	
+	resources :feeds
 	get 'upload', to: 'dashboards#show'
 	get 'friends', to: 'relationships#index'
-	get 'feed', to: 'feeds#index'
+
 
 	get 'search', to: 'search#search'
 	post 'search', to: 'search#result'

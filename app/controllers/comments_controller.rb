@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 		@meal = Meal.find(params[:meal_id])
 		@comment = @meal.comments.build(comment_params.merge!(user: current_user))
 		if @comment.save
+			@comment.create_activity :create, owner: current_user
 			redirect_to @meal
 		else
 			# error message

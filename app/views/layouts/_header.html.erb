@@ -17,7 +17,7 @@
         <% if current_user %>
           <li><%= link_to "Upload", upload_path, class: "navigation-item" %></li>
           <li><%= link_to "My Timeline", user_path(current_user.username), class: "navigation-item" %></li>
-          <li><%= link_to "Feed", feed_path, class: "navigation-item" %></li>
+          <li><%= link_to "Feed", feeds_path, class: "navigation-item" %></li>
           <li><%= link_to "Friends", friends_path, class: "navigation-item" %></li>
           <li><%= link_to "Search", search_path, class: "navigation-item" %></li>
           <li class="dropdown">

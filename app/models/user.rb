@@ -11,16 +11,17 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  def self.friend_ids(user)
+    following_relationship_ids = "SELECT leader_id FROM relationships WHERE follower_id = :user_id"
+    where("id IN (#{following_relationship_ids})", user_id: user.id) 
+  end
+
   def recent_meals
   	meals.last(6).reverse
   end
 
   def self.all_except(user)
   	where.not(id: user.id)
-  end
-
-  def meal_feed
-    Meal.from_users_followed_by(self)
   end
 
   def self.search_by_username(search_term)
