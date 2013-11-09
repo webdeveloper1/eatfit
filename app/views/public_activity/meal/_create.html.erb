@@ -1,6 +1,7 @@
-added a new meal: 
+
 <% if activity.trackable %>
+	added a new meal: 
 	<%= link_to image_tag(activity.trackable.picture, size: "60", class: "pull-right"), activity.trackable %>
 <% else %>
-	which has since been removed
+	removed own meal
 <% end %>

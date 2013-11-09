@@ -3,6 +3,6 @@ class Comment < ActiveRecord::Base
 	# tracked owner: ->(controller, model) { controller && controller.current_user }
 
 	belongs_to :user
-	belongs_to :meal
+	belongs_to :meal, :dependent => :destroy
 
 end
