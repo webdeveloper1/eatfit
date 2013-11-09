@@ -11,9 +11,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def self.friend_ids(user)
-    following_relationship_ids = "SELECT leader_id FROM relationships WHERE follower_id = :user_id"
-    where("id IN (#{following_relationship_ids})", user_id: user.id) 
+  def leader_ids
+    following_relationships.map(&:leader_id)
   end
 
   def recent_meals
