@@ -4,7 +4,14 @@
     <div class="row">
       <div class="col-md-12">
         <div class="intro">
-          <h2>Timeline<span class="tblue">.</span></h2>
+          <% if current_user == @user %>
+            <h2>Timeline<span class="tblue">.</span></h2>
+          <% else %>
+            <h2><%= @user.username %>'s Timeline<span class="tblue">.</span></h2>
+          <% end %>
+          <% if current_user.can_follow?(@user) %>
+            <%= link_to "Follow #{@user.username}", relationships_path(leader_id: @user.id), method: :post, class: "btn btn-info" %>
+          <% end %>
         </div>
       </div>
     </div>
