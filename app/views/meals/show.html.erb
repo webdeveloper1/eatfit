@@ -44,17 +44,15 @@
                   <ul class="comment-list">
                     <% @comments.each do |comment| %>
                       <li class="comment">
-                        <a class="pull-left" href="#">
-                          <% if comment.user.avatar.present? %>
-                            <%= image_tag comment.user.avatar, class: "avatar", size: "64" %>
-                          <% else %>
-                            <%= image_tag "avatar2.png", class: "avatar", size: "64" %>
-                          <% end %>
-                        </a>
-                          <div class="comment-author"><%= link_to comment.user.username, user_path(comment.user.username) %>
-                          <div class="cmeta">Commented on <%= comment.created_at.strftime("%d.%m.-%H:%M") %></div>
-                          <p><%= comment.content %></p>
-                          <div class="clearfix"></div>
+                        <% if comment.user.avatar.present? %>
+                          <%= link_to image_tag(comment.user.avatar, size: "60", class: "avatar img-rounded"), user_path(comment.user.username), class: "pull-left" %>
+                        <% else %>
+                          <%= link_to image_tag("avatar2.png", size: "64", class: "avatar img-rounded"), user_path(comment.user.username), class: "pull-left" %>
+                        <% end %>
+                        <div class="comment-author"><%= link_to comment.user.username, user_path(comment.user.username) %>
+                        <div class="cmeta">Commented on <%= comment.created_at.strftime("%d.%m.-%H:%M") %></div>
+                        <p><%= comment.content %></p>
+                        <div class="clearfix"></div>
                       </li>
                     <% end %>
                   </ul>
