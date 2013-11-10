@@ -51,6 +51,10 @@
                 <% end %>
                 <% if current_user.can_follow?(user) %>
                   <%= link_to "Follow", relationships_path(leader_id: user.id), method: :post, class: "btn btn-info follow-btn" %>
+                <% elsif current_user == user %>
+                  <%= link_to "You", current_user.username, class: "btn btn-warning follow-btn" %>
+                <% else %>
+                  <%= link_to "Friend", user.username, class: "btn btn-warning follow-btn" %>
                 <% end %>
               </div>
           </div>
