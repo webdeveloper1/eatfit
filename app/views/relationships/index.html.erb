@@ -16,9 +16,11 @@
 <div class="contact">
   <div class="container">
     <div class="row" style="margin-top:20px;">
-      <div class="col-md-12">
-        <h4>Your friends will be listed here:</h4>
-      </div>
+      <% unless @relationships == nil %>
+        <div class="col-md-12">
+          <h4>Your friends will be listed here:</h4>
+        </div>
+      <% end %>
 
       <% @relationships.each do |relationship| %>
         <div class="col-md-6 col-xs-12">

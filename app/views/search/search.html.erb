@@ -49,6 +49,7 @@
                 <% else %>
                   <%= link_to image_tag("avatar2.png", size: "60", class: "img-rounded"), user.username %>
                 <% end %>
+                <span><%= pluralize(user.leading_relationships.count, "Follower") %></span>
                 <% if current_user.can_follow?(user) %>
                   <%= link_to "Follow", relationships_path(leader_id: user.id), method: :post, class: "btn btn-info follow-btn" %>
                 <% elsif current_user == user %>
