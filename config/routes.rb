@@ -18,6 +18,9 @@ Eatfit2::Application.routes.draw do
 	resources :feeds
 	get 'upload', to: 'dashboards#show'
 	get 'friends', to: 'relationships#index'
+	
+	get 'contact', to: 'contact_messages#new'
+	resources :contact_messages, only: [:create]
 
 
 	get 'search', to: 'search#search'
