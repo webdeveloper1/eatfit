@@ -9,7 +9,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:lww/#{application}.git"
-set :branch, "master"
+set :branch, "staging"
 
 
 default_run_options[:pty] = true
