@@ -15,6 +15,7 @@ gem 'will_paginate', '~> 3.0.5'
 
 gem 'unicorn'
 gem 'capistrano'
+gem 'capistrano-ext'
 gem 'rvm-capistrano'
 
 gem 'font-awesome-rails'
