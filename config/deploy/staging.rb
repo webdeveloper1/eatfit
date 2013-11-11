@@ -1,8 +1,8 @@
-server "146.185.151.59", :web, :app, :db, primary: true
+server "146.185.158.216", :web, :app, :db, primary: true
 
 set :application, "eatfit2"
 set :user, "django"
-set :port, 21661
+set :port, 8437
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
