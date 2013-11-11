@@ -38,6 +38,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -188,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   browser-timezone-rails
   capistrano
+  capistrano-ext
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
