@@ -1,6 +1,17 @@
 Eatfit2::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.delivery_method = :smtp
+
+    config.action_mailer.smtp_settings = {
+        address: "smtp.mandrillapp.com",
+        port: 587,
+        enable_starttls_auto: true,
+        user_name: "info@eatfit.cc",
+        password: "wIZ4EkR05NBIfgwtYCgYpA",
+        authentication: 'login'
+    }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
