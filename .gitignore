@@ -21,3 +21,5 @@ public/uploads/**
 
 # Ignore application configuration
 /config/database.yml
+
+public/robots.txt
