@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 	end
 
 	def recent_meals
-		meals.last(6).reverse
+		meals.last(3).reverse
 	end
 
 	def self.all_except(user)

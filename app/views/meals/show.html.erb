@@ -21,7 +21,7 @@
 
           <div class="post-meta">
             <i class="icon-calendar"></i> <%= @meal.created_at.strftime("%d.%m. - %H:%M") %>
-            <i class="icon-user"></i> <%= link_to @meal.user.username, user_path(@meal.user.username) %>
+            <i class="icon-user"></i> <%= link_to @meal.user.username, '#' %>
             <span class="pull-right">
               <i class="icon-comment"></i><%= link_to pluralize(@comments.count, "Comment"), @meal %>
             </span>
@@ -31,34 +31,35 @@
           </div>
           <% if @meal.user_id == current_user.id %>
             <%= link_to "Delete Meal", meal_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-xs btn-danger" %>
+            <%= link_to "Share Meal", share_meal_path(id: @meal.id), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-md btn-default" %>
           <% end %>
           <hr>
 
            <!-- Comments Starts -->
            <!-- Comment section -->
-
+<!-- 
             <div class="comments">
 
-                  <div class="title"><h5><%= pluralize(@comments.count, "Comment") %></h5></div>
+                  <div class="title"><h5><%# pluralize(@comments.count, "Comment") %></h5></div>
 
                   <ul class="comment-list">
-                    <% @comments.each do |comment| %>
+                    <%# @comments.each do |comment| %>
                       <li class="comment">
-                        <% if comment.user.avatar.present? %>
-                          <%= link_to image_tag(comment.user.avatar, size: "60", class: "avatar img-rounded"), user_path(comment.user.username), class: "pull-left" %>
-                        <% else %>
-                          <%= link_to image_tag("avatar2.png", size: "64", class: "avatar img-rounded"), user_path(comment.user.username), class: "pull-left" %>
-                        <% end %>
-                        <div class="comment-author"><%= link_to comment.user.username, user_path(comment.user.username) %>
-                        <div class="cmeta">Commented on <%= comment.created_at.strftime("%d.%m.-%H:%M") %></div>
-                        <p><%= comment.content %></p>
+                        <%# if comment.user.avatar.present? %>
+                          <%# link_to image_tag(comment.user.avatar, size: "60", class: "avatar img-rounded"), '#', class: "pull-left" %>
+                        <%# else %>
+                          <%# link_to image_tag("avatar2.png", size: "64", class: "avatar img-rounded"), '#', class: "pull-left" %>
+                        <%# end %>
+                        <div class="comment-author"><%# link_to comment.user.username, '#' %>
+                        <div class="cmeta">Commented on <%# comment.created_at.strftime("%d.%m.-%H:%M") %></div>
+                        <p><%# comment.content %></p>
                         <div class="clearfix"></div>
                       </li>
-                    <% end %>
+                    <%# end %>
                   </ul>
-            </div>
+            </div> -->
 
-            <!-- Comment posting -->
+            <!-- Comment posting
 
             <div class="respond well">
                <div class="title">
@@ -67,24 +68,24 @@
                </div>
 
                <div class="form">
-                 <%= form_for [@meal, Comment.new], html: { class: "form-horizontal", role: "form"} do |f| %>
+                 <%# form_for [@meal, Comment.new], html: { class: "form-horizontal", role: "form"} do |f| %>
                      <div class="form-group">
-                       <%= f.label :content, "Comment", class: "control-label col-md-2" %>
+                       <%# f.label :content, "Comment", class: "control-label col-md-2" %>
                        <div class="col-md-10">
                          <div class="controls">
-                           <%= f.text_area :content, class: "form-control", rows: 3 %>
+                           <%# f.text_area :content, class: "form-control", rows: 3 %>
                          </div>
                        </div>
                      </div>
 
                      <div class="form-group">
                        <div class="col-md-offset-2 col-md-10">
-                         <%= f.submit "Submit", class: "btn btn-primary" %>
+                         <%# f.submit "Submit", class: "btn btn-primary" %>
                        </div>
                      </div>
-                  <% end %>
+                  <%# end %>
                </div>
-            </div>
+            </div> -->
 
            <!-- Comments Ends -->
         </div>

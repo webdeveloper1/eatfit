@@ -23,6 +23,12 @@ class MealsController < ApplicationController
 		redirect_to upload_path
 	end
 
+	def share
+		@meal = Meal.find(params[:id])
+		@meal.update_attributes(private: false) if @meal.user.id == current_user.id
+		redirect_to showcases_path
+	end
+
 	private
 
 		def meal_params
