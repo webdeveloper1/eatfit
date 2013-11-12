@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
 	before_filter :authenticate_user!
+	before_filter :secure_meal, only: [:show]
 
 	def show
 		@meal = Meal.find(params[:id])
@@ -33,5 +34,12 @@ class MealsController < ApplicationController
 
 		def meal_params
 			params.require(:meal).permit(:picture)
+		end
+
+		def secure_meal
+			@meal = Meal.find(params[:id])
+			unless @meal.user == current_user
+				redirect_to root_path if @meal.private == true
+			end
 		end
 end
