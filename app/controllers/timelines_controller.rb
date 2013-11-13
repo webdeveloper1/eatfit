@@ -5,4 +5,5 @@ class TimelinesController < ApplicationController
 		@user = current_user
 		@meals = current_user.meals.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
 	end
+
 end
