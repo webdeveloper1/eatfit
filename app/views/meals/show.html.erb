@@ -33,7 +33,9 @@
           </div>
           <% if @meal.user == current_user %>
             <%= link_to "Delete Meal", meal_path, method: :delete, data: { confirm: "Do you really want to delete this meal?" }, class: "btn btn-xs btn-danger" %>
-            <%= link_to "Share Meal", share_meal_path(id: @meal.id), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-md btn-primary" %>
+            <% if @meal.private == true %>
+              <%= link_to "Share Meal", share_meal_path(id: @meal.id), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-md btn-primary" %>
+            <% end %>
           <% end %>
           <hr>
 
