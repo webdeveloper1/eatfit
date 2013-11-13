@@ -14,6 +14,10 @@ Eatfit2::Application.routes.draw do
 		resources :comments, only: [:new, :create]
 	end
 
+	namespace :admin do
+		resources :overviews, only: [:index]
+	end
+
 	get 'upload', to: 'dashboards#show'
 	get 'contact', to: 'contact_messages#new'
 	get 'timeline', to: 'timelines#show'

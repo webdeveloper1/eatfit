@@ -19,6 +19,9 @@
           <li><%= link_to "My Timeline", timeline_path, class: "navigation-item" %></li>
           <li><%= link_to "Showcases", showcases_path, class: "navigation-item" %></li>
           <li><%= link_to "Ask", '#', class: "navigation-item" %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to "Admin", admin_overviews_path, class: "navigation-item" %></li>
+          <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle navigation-item" data-toggle="dropdown"><%= current_user.username.capitalize %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
