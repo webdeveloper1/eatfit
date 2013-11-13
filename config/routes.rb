@@ -11,7 +11,7 @@ Eatfit2::Application.routes.draw do
 	end
 
 	resources :meals, only: [:show, :new, :create, :destroy] do
-		#resources :comments, only: [:new, :create]
+		resources :comments, only: [:new, :create]
 	end
 
 	get 'upload', to: 'dashboards#show'
