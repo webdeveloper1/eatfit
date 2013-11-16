@@ -18,7 +18,11 @@ Eatfit2::Application.routes.draw do
 	end
 
 	namespace :admin do
-		resources :overviews, only: [:index]
+		resources :overviews, only: [:index] do
+			get 'users', on: :collection
+			get 'meals', on: :collection
+			get 'comments', on: :collection
+		end
 	end
 
 	get 'upload', to: 'dashboards#show'

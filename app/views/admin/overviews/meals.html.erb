@@ -1,0 +1,38 @@
+<% content_for :hero do %>
+<div class="hero inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="intro">
+          <h2>Admin: Meals<span class="tblue">.</span></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="blog">
+  <div class="container">
+    <div class="row center">
+      <%= link_to "Users", users_admin_overviews_path, class: "btn btn-default" %>
+      <%= link_to "Comments", comments_admin_overviews_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
+
+<div class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-8 col-xs-12">
+        <% @meals.each do |meal| %>
+          <div class="query">
+          <h3><%= meal.user.username %>: <%= meal.created_at.strftime("%d. %h. %H:%M") %></h3>
+          <hr>
+            <%= image_tag meal.picture, size: "150" %>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

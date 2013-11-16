@@ -1,0 +1,49 @@
+<% content_for :hero do %>
+<div class="hero inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="intro">
+          <h2>Admin: Users<span class="tblue">.</span></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="blog">
+  <div class="container">
+    <div class="row center">
+      <%= link_to "Meals", meals_admin_overviews_path, class: "btn btn-primary" %>
+      <%= link_to "Comments", comments_admin_overviews_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
+
+<div class="blog">
+  <div class="container">
+    <div class="row center">
+      <table class="table table-striped">
+        <tr>
+          <th>Count: <%= @users.count %> Users</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>SignInCount</th>
+          <th>Created at</th>
+          <th>Last Login</th>
+        </tr>
+        <% @users.each_with_index do |user, i| %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= user.email %></td>
+            <td><%= user.username %></td>
+            <td><%= user.sign_in_count %></td>
+            <td><%= user.created_at.strftime("%d.%m.%y.") %></td>
+            <td><%= user.last_sign_in_at.strftime("%d.%m.%y. (%H:%M)") %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
