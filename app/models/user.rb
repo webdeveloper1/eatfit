@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	has_many :comments
 	has_many :following_relationships, class_name: "Relationship", foreign_key: :follower_id
 	has_many :leading_relationships, class_name: "Relationship", foreign_key: :leader_id
+	has_many :votes
 
 	mount_uploader :avatar, AvatarUploader
 
@@ -20,7 +21,7 @@ class User < ActiveRecord::Base
 	end
 
 	def recent_meals
-		meals.last(6).reverse
+		meals.last(3).reverse
 	end
 
 	def self.all_except(user)
@@ -38,5 +39,13 @@ class User < ActiveRecord::Base
 
 	def can_follow?(another_user)
 		!(self.follows?(another_user) || self == another_user)
+	end
+
+	def voted_for(meal)
+		votes.map(&:voteable_id).include?(meal.id)
+	end
+
+	def can_vote_for?(meal)
+		!(self.voted_for(meal) || self == meal.user)
 	end
 end

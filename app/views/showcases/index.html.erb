@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="intro">
-          <h2>My Timeline<span class="tblue">.</span></h2>
+          <h2>Trending Food<span class="tblue">.</span></h2>
         </div>
       </div>
     </div>
@@ -14,19 +14,14 @@
 
 <div class="blog">
   <div class="container">
-    <div class="row center">
-      <div class="col-md4 col-sm-12">
-        <%= will_paginate @meals %>
-      </div>
-    </div>
     
     <div class="row center">
       <% @meals.each do |meal| %>
         <div class="col-md-4 col-sm-12">
           <div class="posts">
             <div class="post-meta">
-              <i class="icon-calendar"></i> <%= meal.created_at.strftime("%d.%m. - %H:%M") %>
-              <!-- <i class="icon-comment"></i><%# link_to pluralize(meal.comments.count, "Comment"), meal %> -->
+              <i class="icon-heart"></i> <%= meal.votes.count %>
+              <i class="icon-comment"></i><%= meal.comments.count %>
             </div>
             <div class="post-content">
               <%= link_to image_tag(meal.picture, class: "img-responsive img-thumbnail", size: "300"), meal %>
@@ -34,12 +29,6 @@
           </div>
         </div>
       <% end %>
-    </div>
-
-    <div class="row center">
-      <div class="col-md4 col-sm-12">
-        <%= will_paginate @meals %>
-      </div>
     </div>
 
   </div>

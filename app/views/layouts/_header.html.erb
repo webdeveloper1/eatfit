@@ -16,10 +16,11 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%= link_to "Upload", upload_path, class: "navigation-item" %></li>
-          <li><%= link_to "My Timeline", user_path(current_user.username), class: "navigation-item" %></li>
-          <li><%= link_to "Feed", feeds_path, class: "navigation-item" %></li>
-          <li><%= link_to "Friends", friends_path, class: "navigation-item" %></li>
-          <li><%= link_to "Search", search_path, class: "navigation-item" %></li>
+          <li><%= link_to "My Timeline", timeline_path, class: "navigation-item" %></li>
+          <li><%= link_to "Trending", trending_path, class: "navigation-item" %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to "Admin", admin_overviews_path, class: "navigation-item" %></li>
+          <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle navigation-item" data-toggle="dropdown"><%= current_user.username.capitalize %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -29,8 +30,9 @@
           </li>
         <% else %>
           <li><%= link_to "Home", root_path, class: "navigation-item" %></li>
+          <li><%= link_to "Trending", trending_path, class: "navigation-item" %></li>
           <li><%= link_to "Login", login_path, class: "navigation-item" %></li>
-          <li><%= link_to "Contact Us", contact_path, class: "navigation-item" %></li>          
+          <!-- <li><%# link_to "Contact Us", contact_path, class: "navigation-item" %></li>           -->
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
