@@ -24,7 +24,8 @@
             <i class="icon-user"></i> <%= @meal.user.username %>
             <% if @meal.private == false %>
             <span class="pull-right">
-              <i class="icon-comment"></i><%= link_to pluralize(@comments.count, "Comment"), @meal %>
+              <i class="icon-heart"></i><%= @meal.votes.count %>
+              <i class="icon-comment"></i><%= @comments.count %>
             </span>
             <% end %>
           </div>
@@ -34,8 +35,11 @@
           <% if @meal.user == current_user %>
             <%= link_to "Delete Meal", meal_path, method: :delete, data: { confirm: "Do you really want to delete this meal?" }, class: "btn btn-xs btn-danger" %>
             <% if @meal.private == true %>
-              <%= link_to "Share Meal", share_meal_path(id: @meal.id), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-md btn-primary" %>
+              <%= link_to "Share Meal", share_meal_path(token: @meal.token), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-md btn-primary" %>
             <% end %>
+          <% end %>
+          <% if current_user && current_user.can_vote_for?(@meal) %>
+            <%= link_to "Like this meal?", vote_meal_path(@meal, vote: true), method: 'post', class: "btn btn-success" %>
           <% end %>
           <hr>
 

@@ -19,15 +19,24 @@ class MealsController < ApplicationController
 	end
 
 	def destroy
-		@meal = Meal.find(params[:id])
+		@meal = Meal.find_by_token(params[:id])
 		@meal.destroy if @meal.user_id == current_user.id
 		redirect_to upload_path
 	end
 
 	def share
-		@meal = Meal.find(params[:id])
+		@meal = Meal.find_by_token(params[:token])
 		@meal.update_attributes(private: false) if @meal.user.id == current_user.id
 		redirect_to trending_path
+	end
+
+	def vote
+		@meal = Meal.find_by_token(params[:id])
+		@vote = Vote.new(voteable: @meal, user: current_user, vote: params[:vote])
+
+		if @vote.save
+			redirect_to @meal
+		end
 	end
 
 	private

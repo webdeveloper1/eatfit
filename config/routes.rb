@@ -12,6 +12,9 @@ Eatfit2::Application.routes.draw do
 
 	resources :meals, only: [:show, :new, :create, :destroy] do
 		resources :comments, only: [:new, :create]
+		member do
+			post 'vote'
+		end
 	end
 
 	namespace :admin do
