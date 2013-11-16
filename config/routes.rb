@@ -21,7 +21,7 @@ Eatfit2::Application.routes.draw do
 	get 'upload', to: 'dashboards#show'
 	get 'contact', to: 'contact_messages#new'
 	get 'timeline', to: 'timelines#show'
-	get 'showcases', to: 'showcases#index'
+	get 'trending', to: 'showcases#index'
 
 	post 'share_meal', to: 'meals#share'
 

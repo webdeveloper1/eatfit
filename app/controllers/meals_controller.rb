@@ -27,7 +27,7 @@ class MealsController < ApplicationController
 	def share
 		@meal = Meal.find(params[:id])
 		@meal.update_attributes(private: false) if @meal.user.id == current_user.id
-		redirect_to showcases_path
+		redirect_to trending_path
 	end
 
 	private

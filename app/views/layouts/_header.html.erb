@@ -17,8 +17,7 @@
         <% if current_user %>
           <li><%= link_to "Upload", upload_path, class: "navigation-item" %></li>
           <li><%= link_to "My Timeline", timeline_path, class: "navigation-item" %></li>
-          <li><%= link_to "Showcases", showcases_path, class: "navigation-item" %></li>
-          <li><%= link_to "Ask", '#', class: "navigation-item" %></li>
+          <li><%= link_to "Trending", trending_path, class: "navigation-item" %></li>
           <% if current_user.admin? %>
             <li><%= link_to "Admin", admin_overviews_path, class: "navigation-item" %></li>
           <% end %>
@@ -32,8 +31,8 @@
         <% else %>
           <li><%= link_to "Home", root_path, class: "navigation-item" %></li>
           <li><%= link_to "Login", login_path, class: "navigation-item" %></li>
-          <li><%= link_to "Showcases", showcases_path, class: "navigation-item" %></li>
-          <li><%= link_to "Contact Us", contact_path, class: "navigation-item" %></li>          
+          <li><%= link_to "Trending", trending_path, class: "navigation-item" %></li>
+          <!-- <li><%# link_to "Contact Us", contact_path, class: "navigation-item" %></li>           -->
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
