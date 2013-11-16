@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="intro">
-          <h2>Admin<span class="tblue">.</span></h2>
+          <h2>Admin Overview<span class="tblue">.</span></h2>
         </div>
       </div>
     </div>
@@ -14,31 +14,10 @@
 
 <div class="blog">
   <div class="container">
-    <div class="row center">
-      <table class="table table-striped">
-        <tr>
-          <th>#</th>
-          <th>Email</th>
-          <th>Username</th>
-          <th>SignInCount</th>
-          <th>Created at</th>
-          <th>Last Login</th>
-        </tr>
-        <% x = 1 %>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= x %></td>
-            <td><%= user.email %></td>
-            <td><%= user.username %></td>
-            <td><%= user.sign_in_count %></td>
-            <td><%= user.created_at.strftime("%d.%m.%y.") %></td>
-            <td><%= user.last_sign_in_at.strftime("%d.%m.%y. (%H:%M)") %></td>
-            <% x += 1 %>
-          </tr>
-        <% end %>
-      </table>
-
+    <div class="row admin">
+      <%= link_to "Users", users_admin_overviews_path, class: "btn btn-default" %>
+      <%= link_to "Meals", meals_admin_overviews_path, class: "btn btn-primary" %>
+      <%= link_to "Comments", comments_admin_overviews_path, class: "btn btn-success" %>
     </div>
-
   </div>
 </div>
