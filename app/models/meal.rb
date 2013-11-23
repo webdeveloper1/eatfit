@@ -10,7 +10,6 @@ class Meal < ActiveRecord::Base
 
 	validates_presence_of :picture
 
-
 	def to_param
 		self.token
 	end
