@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
 	end
 
 	def recent_meals
-		meals.last(1)
+		# meals.last(1)
+		meals.order("created_at DESC").take(3)
 	end
 
 	def self.all_except(user)
