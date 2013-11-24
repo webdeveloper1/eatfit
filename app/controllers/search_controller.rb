@@ -2,8 +2,9 @@ class SearchController < ApplicationController
 	before_filter :authenticate_user!
 
 	def search
-		#@followingusers = current_user.following_relationships.map(&:leader)
-		@users = User.all
+		users_not_to_display = current_user.leader_ids
+		users_not_to_display << current_user.id
+		@users = User.where("id NOT IN (?)", users_not_to_display).limit(10)
 	end
 
 	def result
