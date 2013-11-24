@@ -2,7 +2,7 @@ class RelationshipsController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		@relationships = current_user.following_relationships
+		@relationships = current_user.following_relationships.paginate(:page => params[:page], :per_page => 8)
 	end
 
 	def create
@@ -15,5 +15,9 @@ class RelationshipsController < ApplicationController
 		relationship = Relationship.find(params[:id])
 		relationship.destroy if relationship.follower == current_user
 		redirect_to friends_path
+	end
+
+	def followers
+		@followers = User.where("id IN (?)", current_user.follower_ids).paginate(:page => params[:page], :per_page => 8)
 	end
 end

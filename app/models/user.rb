@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
 		following_relationships.map(&:leader_id)
 	end
 
+	def follower_ids
+		leading_relationships.map(&:follower_id)
+	end
+
 	def recent_meals
 		meals.order("created_at DESC").take(3)
 	end

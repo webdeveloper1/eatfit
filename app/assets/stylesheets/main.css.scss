@@ -33,3 +33,21 @@
 th {
   text-align: center;
 }
+
+.friends-overview li {
+  list-style-type: none;
+  display: inline;
+  margin: 0 10px;
+}
+
+.friends-overview li a {
+  color: #777;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.friends-overview li a:hover {
+  color: #3276B1;
+  text-transform: none;
+  text-decoration: none;
+}
