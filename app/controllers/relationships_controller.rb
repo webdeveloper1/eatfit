@@ -2,7 +2,7 @@ class RelationshipsController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		@relationships = current_user.following_relationships
+		@relationships = current_user.following_relationships.paginate(:page => params[:page], :per_page => 2)
 	end
 
 	def create
