@@ -14,25 +14,39 @@
 
 <div class="contact">
   <div class="container">
+
+    <div class="row center">
+      <div class="col-md4 col-sm-12">
+        <%= will_paginate @activities %>
+      </div>
+    </div>
+
     <div class="row" style="margin-top: 20px;">
       <% if @activities %>
-      <% @activities.each do |activity| %>
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading"><%= distance_of_time_in_words_to_now(activity.created_at) %> ago</div>
-            <div class="panel-body">
-                <% if activity.owner.avatar.present? %>
-                  <%= link_to image_tag(activity.owner.avatar, size: "60", class: "img-rounded"), activity.owner.username %>
-                <% else %>
-                  <%= link_to image_tag("avatar2.png", size: "60", class: "img-rounded"), activity.owner.username %>
-                <% end %>
-              <%= link_to activity.owner.username, activity.owner.username %>
-              <%= render_activity activity %>
+        <% @activities.each do |activity| %>
+          <div class="col-md-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading"><%= distance_of_time_in_words_to_now(activity.created_at) %> ago</div>
+              <div class="panel-body">
+                  <% if activity.owner.avatar.present? %>
+                    <%= link_to image_tag(activity.owner.avatar, size: "60", class: "img-rounded"), activity.owner.username %>
+                  <% else %>
+                    <%= link_to image_tag("avatar2.png", size: "60", class: "img-rounded"), activity.owner.username %>
+                  <% end %>
+                <%= link_to activity.owner.username, activity.owner.username %>
+                <%= render_activity activity %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
       <% end %>
     </div>
+
+    <div class="row center">
+      <div class="col-md4 col-sm-12">
+        <%= will_paginate @activities %>
+      </div>
+    </div>
+
   </div>
 </div>
