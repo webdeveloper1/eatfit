@@ -10,7 +10,6 @@ class MealsController < ApplicationController
 	def create
 		@meal = current_user.meals.build(meal_params)
 		if @meal.save
-			@meal.create_activity :create, owner: current_user
 			redirect_to upload_path
 		else
 			# display error message
@@ -27,6 +26,7 @@ class MealsController < ApplicationController
 	def share
 		@meal = Meal.find_by_token(params[:token])
 		@meal.update_attributes(private: false) if @meal.user.id == current_user.id
+		@meal.create_activity :create, owner: current_user
 		redirect_to trending_path
 	end
 
