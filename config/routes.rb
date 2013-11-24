@@ -25,6 +25,12 @@ Eatfit2::Application.routes.draw do
 		end
 	end
 
+	resources :relationships, only: [:create, :destroy]
+	resources :feeds
+	get 'search', to: 'search#search'
+	post 'search', to: 'search#result'
+	get 'friends', to: 'relationships#index'
+
 	get 'upload', to: 'dashboards#show'
 	get 'contact', to: 'contact_messages#new'
 	get 'timeline', to: 'timelines#show'
@@ -34,11 +40,6 @@ Eatfit2::Application.routes.draw do
 
 	resources :contact_messages, only: [:create]
 
+	get ':username', to: 'timelines#show', as: :user
 	devise_for :users
-
-	# resources :relationships, only: [:create, :destroy]
-	# resources :feeds
-	# get 'search', to: 'search#search'
-	# post 'search', to: 'search#result'
-	# get 'friends', to: 'relationships#index'
 end
