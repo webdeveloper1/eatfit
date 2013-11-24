@@ -31,6 +31,7 @@ Eatfit2::Application.routes.draw do
 	get 'search', to: 'search#search'
 	post 'search', to: 'search#result'
 	get 'friends', to: 'relationships#index'
+	get 'followers', to: 'relationships#followers'
 
 	get 'upload', to: 'dashboards#show'
 	get 'contact', to: 'contact_messages#new'

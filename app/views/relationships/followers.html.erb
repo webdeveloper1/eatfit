@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="intro">
-          <h2>My Friends<span class="tblue">.</span></h2>
+          <h2>My Followers<span class="tblue">.</span></h2>
         </div>
       </div>
     </div>
@@ -21,12 +21,7 @@
         <div class="sidebar well">
           <div class="widget">
             <h3><%= current_user.username %></h3>
-            <% if current_user.avatar.present? %>
-              <%= image_tag(current_user.avatar.url, size: "80") %>
-            <% else %>
-              <%= image_tag("avatar2.png", size: "80") %>
-              <%= link_to "Change avatar here", account_path %>
-            <% end %>
+            <%= image_tag(current_user.avatar.url, size: "80") %>
             <ul class="friends-overview">
               <li><%= link_to "Followers: #{current_user.leading_relationships.count}", followers_path %></li>
               <li><%= link_to "Following: #{current_user.following_relationships.count}", friends_path %></li>
@@ -38,29 +33,28 @@
 
     <div class="row center">
       <div class="col-md4 col-sm-12">
-        <%= will_paginate @relationships %>
+        <%= will_paginate @followers %>
       </div>
     </div>
 
     <div class="row" style="margin-top:20px;">
-      <% if @relationships == nil %>
+      <% if @followers == nil %>
         <div class="col-md-12">
-          <h4>Your friends will be listed here:</h4>
+          <h4>Your followers will be listed here:</h4>
         </div>
       <% end %>
 
-      <% @relationships.each do |relationship| %>
+      <% @followers.each do |follower| %>
         <div class="col-md-12 col-xs-12">
           <div class="panel panel-default">
-            <div class="panel-heading"><%= link_to relationship.leader.username.capitalize, user_path(relationship.leader.username) %></div>
+            <div class="panel-heading"><%= link_to follower.username.capitalize, user_path(follower.username) %></div>
               <div class="panel-body">
-                <% if relationship.leader.avatar.present? %>
-                  <%= link_to image_tag(relationship.leader.avatar, size: "60", class: "img-rounded"), user_path(relationship.leader.username) %>
+                <% if follower.avatar.present? %>
+                  <%= link_to image_tag(follower.avatar, size: "60", class: "img-rounded"), user_path(follower.username) %>
                 <% else %>
-                  <%= link_to image_tag("avatar2.png", size: "60", class: "img-rounded"), user_path(relationship.leader.username) %>
+                  <%= link_to image_tag("avatar2.png", size: "60", class: "img-rounded"), user_path(follower.username) %>
                 <% end %>
-                <%= pluralize(relationship.leader.leading_relationships.count, "Follower") %>
-                <%= link_to "Unfollow", relationship, method: :delete, class: "btn btn-danger follow-btn" %>
+                <%= pluralize(follower.leading_relationships.count, "Follower") %>
               </div>
           </div>
         </div>
@@ -69,7 +63,7 @@
 
     <div class="row center">
       <div class="col-md4 col-sm-12">
-        <%= will_paginate @relationships %>
+        <%= will_paginate @followers %>
       </div>
     </div>
 
