@@ -4,7 +4,7 @@ class SearchController < ApplicationController
 	def search
 		users_not_to_display = current_user.leader_ids
 		users_not_to_display << current_user.id
-		@users = User.where("id NOT IN (?)", users_not_to_display).limit(10)
+		@users = User.where("id NOT IN (?) AND avatar NOT IN (?)", users_not_to_display, true).limit(10)
 	end
 
 	def result
