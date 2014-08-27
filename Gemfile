@@ -8,6 +8,7 @@ gem 'figaro'
 gem 'pry'
 gem 'browser-timezone-rails'
 gem 'public_activity'
+gem 'rails_12factor'
 
 gem 'carrierwave'
 gem 'mini_magick'
