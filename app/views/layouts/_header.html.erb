@@ -18,7 +18,7 @@
           <li><%= link_to "Upload", upload_path, class: "navigation-item" %></li>
           <li><%= link_to "My Timeline", user_path(current_user.username), class: "navigation-item" %></li>
           <li><%= link_to "Activities", activities_path, class: "navigation-item" %></li>
-          <li><%= link_to "Trending", trending_path, class: "navigation-item" %></li>
+          <!--<li><%= link_to "Trending", trending_path, class: "navigation-item" %></li>-->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle navigation-item" data-toggle="dropdown">People<b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -39,7 +39,7 @@
           </li>
         <% else %>
           <li><%= link_to "Home", root_path, class: "navigation-item" %></li>
-          <li><%= link_to "Trending", trending_path, class: "navigation-item" %></li>
+          <!--<li><%= link_to "Trending", trending_path, class: "navigation-item" %></li>-->
           <li><%= link_to "Contact Us", contact_path, class: "navigation-item" %></li>
           <li><%= link_to "Login", login_path, class: "navigation-item" %></li>
         <% end %>
